@@ -1,5 +1,5 @@
-  - name: Demo in playbook
-    host: all
-    tasks:
-      - debug:
-        msg: Hello Yaml
+- name: Demo in playbook
+  hosts: all
+  tasks:
+    - debug:
+      msg: Hello Yaml
