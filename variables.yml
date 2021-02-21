@@ -3,5 +3,5 @@
   vars:
     URL: play.devopsproject.tk
   tasks:
-    debug:
-      msg: URL = {{ URL }}
+    - debug:
+        msg: URL = {{ URL }}
