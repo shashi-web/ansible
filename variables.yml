@@ -1,7 +1,7 @@
--name: demo on play variables
-hosts: all
-vars:
-  URL: play.devopsproject.tk
-tasks:
-  - debug:
-      msg: URL = {{ URL }}
+- name: demo on play variables
+  hosts: all
+  vars:
+    URL: play.devopsproject.tk
+  tasks:
+    debug:
+      msg: URL={{URL}}
