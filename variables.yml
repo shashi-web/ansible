@@ -14,3 +14,10 @@
         URL: tasks.devopsproject.tk
       debug:
         msg: URL = {{ URL }}
+
+- name: demo on cli variables
+  hosts: all
+  tasks:
+    - name: print on cli
+      debug:
+        msg: URL1 = {{ URL1 }}
