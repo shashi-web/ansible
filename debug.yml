@@ -1,5 +1,5 @@
 - name: Demo in playbook
   host: all
   tasks:
-    debug:
+    - debug:
       msg: Hello Yaml
