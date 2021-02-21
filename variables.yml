@@ -5,3 +5,12 @@
   tasks:
     - debug:
         msg: URL = {{ URL }}
+
+- name: demo on task level variables
+  hosts: all
+  tasks:
+    - name: Print URL
+      vars:
+        URL: tasks.devopsproject.tk
+      debug:
+        msg: URL = {{ URL }}
