@@ -5,4 +5,4 @@
       shell: id
       register: out
     - debug:
-        msg: "{{out}}"
+        msg: "{{out.stdout}}"
