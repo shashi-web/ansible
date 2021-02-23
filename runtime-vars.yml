@@ -10,6 +10,7 @@
         msg: "{{out.stdout}}"
       set_fact:
         UPTIME_OUTPUT: "{{out.stdout}}"
+
     - name: print uptime variable
       debug:
         msg: "{{UPTIME_OUTSIDE}}"
