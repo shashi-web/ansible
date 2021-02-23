@@ -1,0 +1,9 @@
+- name: Demo on rumtime variables
+  hosts: all
+  tasks:
+    - name: grab uptime
+      shell: uptime
+      register: out
+    - name: print uptime
+      debug:
+      msg: {{out}}
