@@ -8,6 +8,7 @@
     - name: print uptime
       debug:
         msg: "{{out.stdout}}"
+    - name: set a vriable
       set_fact:
         UPTIME_OUTPUT: "{{out.stdout}}"
 
