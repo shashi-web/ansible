@@ -1,5 +1,6 @@
 - name: demo on privilage escalation
   hosts: all
+  become: yes
   tasks:
     - name: print the userid
       shell: id
