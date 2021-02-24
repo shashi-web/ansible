@@ -5,7 +5,6 @@
     state: present
 
 - name: Download {{ APP }} component
-  become: yes
   include_role:
     name: common
     tasks_from: curl_download
