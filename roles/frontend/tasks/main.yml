@@ -4,6 +4,7 @@
     name: nginx
     state: present
 
+
 - name: Download {{ APP }} component
   include_role:
     name: common
