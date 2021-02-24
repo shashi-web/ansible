@@ -7,6 +7,7 @@
   ansible.builtin.file:
     path: "{{EXTRACT_DIR}}"
     state: absent
+  become_user: "{{APP_USER}}"
 
 - name: create a directory for {{ APP }} component
   ansible.builtin.file:
