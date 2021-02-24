@@ -15,5 +15,6 @@
 
 - name: unarchive {{ APP }} component
   ansible.builtin.unarchive:
-    src: "{{EXTRACT_DIR}}"
+    src: /tmp/{{APP}}.zip
+    dest: "{{EXTRACT_DIR}}"
     remote_src: yes
