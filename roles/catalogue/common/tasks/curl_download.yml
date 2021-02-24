@@ -1,0 +1,19 @@
+- name: Download {{ APP }} component
+  get_url:
+    url: "{{ URL }}"
+    dest: /tmp/{{APP}}.zip
+
+- name: Remove old content
+  file:
+    path: "{{EXTRACT_DIR}}"
+    state: absent
+
+- name: create a directory for {{ APP }} component
+  file:
+    path: "{{EXTRACT_DIR}}"
+    state: directory
+
+- name: unarchive {{ APP }} component
+  ansible.builtin.unarchive:
+    src: "{{EXTRACT_DIR}}"
+    remote_src: yes
