@@ -1,4 +1,11 @@
 - name: setup roboshop project
   hosts: all
-  roles:
-    - frontend
+  tasks:
+    - name: Import frontend
+      ansible.builtin.import_role:
+        name: frontend
+      when: APP=frontend
+    - name: Import catalogue
+      ansible.builtin.import_role:
+        name: catalogue
+      when: APP=catalogue
