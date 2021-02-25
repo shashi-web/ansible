@@ -18,9 +18,9 @@
   systemd:
     name: mongod
     state: restarted
-    enable: yes
+    enabled: yes
 
-- name: download {{APP}} schema
+- name: download {{ APP }} schema
   include_role:
     name: common
     tasks_from: curl_download
