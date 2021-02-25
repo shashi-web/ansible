@@ -12,3 +12,8 @@
         name: catalogue
       tags: catalogue
       when: APP == "catalogue"
+    - name: Import catalogue
+      ansible.builtin.import_role:
+        name: mongodb
+      tags: mongodb
+      when: APP == "mongodb"
