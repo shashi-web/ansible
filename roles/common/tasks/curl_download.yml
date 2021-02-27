@@ -12,9 +12,11 @@
   ansible.builtin.file:
     path: "{{EXTRACT_DIR}}"
     state: directory
+  become_user: "{{APP_USER}}"
 
 - name: unarchive {{ APP }} component
   ansible.builtin.unarchive:
     src: /tmp/{{APP}}.zip
     dest: "{{EXTRACT_DIR}}"
     remote_src: yes
+  become_user: "{{APP_USER}}"
