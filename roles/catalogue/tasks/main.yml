@@ -6,11 +6,6 @@
       - gcc-c++
     state: present
 
-- name: add roboshop user
-  include_role:
-    name: common
-    tasks_from: useradd
-
 - name: Download {{ APP }} component
   include_role:
     name: common
