@@ -17,3 +17,13 @@
         name: mongodb
       tags: mongodb
       when: APP == "mongodb"
+    - name: Import cart
+        ansible.builtin.import_role:
+          name: cart
+        tags: cart
+        when: APP == "cart"
+    - name: Import user
+        ansible.builtin.import_role:
+          name: user
+        tags: user
+        when: APP == "user"
