@@ -17,3 +17,5 @@
     path: /home/roboshop/{{component}}
   become_user: roboshop
 
+- name: Download {{ component }} component
+  include_tasks: systemd.yml
