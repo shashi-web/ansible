@@ -4,15 +4,15 @@
     regexp: "{{item.source}}"
     replace: "{{item.dest}}"
   loop:
-    - { source: "MONGO_DNSNAME", dest: "mongodb-{{ENV}}.devopsb54.tk" }
-    - { source: "MONGO_ENDPOINT", dest: "mongodb-{{ENV}}.devopsb54.tk" }
-    - { source: "REDIS_ENDPOINT", dest: "redis-{{ENV}}.devopsb54.tk" }
-    - { source: "CATALOGUE_ENDPOINT", dest: "catalogue-{{ENV}}.devopsb54.tk" }
-    - { source: "CARTHOST", dest: "cart-{{ENV}}.devopsb54.tk" }
-    - { source: "USERHOST", dest: "user-{{ENV}}.devopsb54.tk" }
-    - { source: "AMQPHOST", dest: "rabbitmq-{{ENV}}.devopsb54.tk" }
-    - { source: "CARTENDPOINT", dest: "cart-{{ENV}}.devopsb54.tk" }
-    - { source: "DBHOST", dest: "mysql-{{ENV}}.devopsb54.tk" }
+    - { source: "MONGO_DNSNAME", dest: "mongodb-{{ENV}}.devopsproject.tk" }
+    - { source: "MONGO_ENDPOINT", dest: "mongodb-{{ENV}}.devopsproject.tk" }
+    - { source: "REDIS_ENDPOINT", dest: "redis-{{ENV}}.devopsproject.tk" }
+    - { source: "CATALOGUE_ENDPOINT", dest: "catalogue-{{ENV}}.devopsproject.tk" }
+    - { source: "CARTHOST", dest: "cart-{{ENV}}.devopsproject.tk" }
+    - { source: "USERHOST", dest: "user-{{ENV}}.devopsproject.tk" }
+    - { source: "AMQPHOST", dest: "rabbitmq-{{ENV}}.devopsproject.tk" }
+    - { source: "CARTENDPOINT", dest: "cart-{{ENV}}.devopsproject.tk" }
+    - { source: "DBHOST", dest: "mysql-{{ENV}}.devopsproject.tk" }
 
 - name: setup systemD script
   ansible.builtin.shell: mv /home/roboshop/{{component}}/systemd.service /etc/systemd/system/{{component}}.service
