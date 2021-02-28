@@ -7,26 +7,31 @@
         name: frontend
       tags: frontend
       when: APP == "frontend"
+
     - name: Import catalogue
       ansible.builtin.import_role:
         name: catalogue
       tags: catalogue
       when: APP == "catalogue"
-    - name: Import catalogue
+
+    - name: Import mongodb
       ansible.builtin.import_role:
         name: mongodb
       tags: mongodb
       when: APP == "mongodb"
+
     - name: Import cart
       ansible.builtin.import_role:
         name: cart
       tags: cart
       when: APP == "cart"
+
     - name: Import user
       ansible.builtin.import_role:
         name: user
       tags: user
       when: APP == "user"
+
     - name: Import redis
       ansible.builtin.import_role:
         name: redis
