@@ -16,7 +16,7 @@
 - name: move HTDOCS file
   shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
 
-- name: Copy a "sudoers" file on the remote machine for editing
+- name: move localhost.conf to roboshop.conf
   ansible.builtin.copy:
     src: /usr/share/nginx/html/localhost.conf
     dest: /etc/nginx/default.d/roboshop.conf
