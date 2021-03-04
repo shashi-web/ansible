@@ -16,10 +16,10 @@
 - name: move HTDOCS file
   shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
 
-- name: move localhost.conf to roboshop.conf
-  template:
-    src: roboshop.conf
-    dest: /etc/nginx/default.d/roboshop.conf
+#- name: move localhost.conf to roboshop.conf
+ # template:
+  #  src: roboshop.conf
+   # dest: /etc/nginx/default.d/roboshop.conf
 
 - name: start nginx service
   systemd:
