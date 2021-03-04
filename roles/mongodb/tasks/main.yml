@@ -30,7 +30,7 @@
     APP_USER: root
 
 - name: Load schema
-  shell: mongo <{{item}}
+  ansible.builtin.shell: mongo <{{item}}
   loop:
     - catalogue.js
     - users.js
