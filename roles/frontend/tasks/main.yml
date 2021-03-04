@@ -17,10 +17,9 @@
   shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
 
 - name: move localhost.conf to roboshop.conf
-  ansible.builtin.copy:
-    src: /usr/share/nginx/html/localhost.conf
+  template:
+    src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-    remote_src: yes
 
 - name: start nginx service
   systemd:
