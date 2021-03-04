@@ -1,10 +1,10 @@
 - name: copy mongodb repo file
-  copy:
+  ansible.builtin.copy:
     src: mongodb.repo
     dest: /etc/yum.repos.d/
 
 - name: install mongodb
-  yum:
+  ansible.builtin.yum:
     name: mongodb-org
     state: installed
 
@@ -15,13 +15,13 @@
     replace: '0.0.0.0'
 
 - name: start mongodb service
-  systemd:
+  ansible.builtin.systemd:
     name: mongod
     state: restarted
     enabled: yes
 
 - name: download {{ APP }} schema
-  include_role:
+  ansible.builtin.include_role:
     name: common
     tasks_from: curl_download
   vars:
