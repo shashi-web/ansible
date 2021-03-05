@@ -31,6 +31,7 @@
   block:
     - name: grab mysql password
       shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
+      register: PASSWORD
 
     - name: copy sql file
       copy:
