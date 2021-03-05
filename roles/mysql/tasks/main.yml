@@ -1,4 +1,4 @@
-- name: setup MySQL repo
+- name: setup mysql repo
   ansible.builtin.copy:
     src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
@@ -8,7 +8,7 @@
     name: mariadb-libs
     state: absent
 
-- name: Install MySQL server
+- name: Install mysql server
   ansibel.builtin.yum:
     name: mysql-community-server
     state: present
