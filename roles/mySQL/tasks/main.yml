@@ -47,3 +47,5 @@
     EXTRACT_DIR: /tmp/mysql
     APP_USER: root
 
+- name: Load schema
+  shell: mysql -uroot -ppassword < /tmp/mysql/shipping.sql
