@@ -38,7 +38,7 @@
         dest: /tmp/password.sql
 
     - name: reset mysql password
-      shell: mysql --connect-expired-password -uroot -p"${{PASSWORD.stdout}}" < /tmp/password.sql
+      shell: mysql --connect-expired-password -uroot -p"{{PASSWORD.stdout}}" < /tmp/password.sql
 
 - name: Download {{ component }} schema
   include_role:
