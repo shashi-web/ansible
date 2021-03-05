@@ -13,7 +13,7 @@
 - name: install maven module
   ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
     args:
-      path: /home/roboshop/{{component}}
+      chdir: /home/roboshop/{{component}}
   become_user: roboshop
 
 - name: Download {{ component }} component
