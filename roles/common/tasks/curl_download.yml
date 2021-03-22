@@ -31,6 +31,6 @@
 
 - name: Move static content
   shell: mv /usr/share/nginx/frontend /usr/share/nginx/html && mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
-  when: compoent == "frontend"
+  when: component == "frontend"
 
 
