@@ -1,10 +1,10 @@
 - name: install python
   ansible.builtin.yum:
-    - name:
-        - python36
-        - gcc
-        - python3-devel
-      state: present
+    name:
+      - python36
+      - gcc
+      - python3-devel
+    state: present
 
 - name: Download {{ COMPONENT }} Component
   ansible.builtin.include_tasks: curl_download.yml
