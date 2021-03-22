@@ -8,6 +8,11 @@
     path: "{{COMPONENT_DIR}}"
     state: absent
 
+- name: remove old content from nginx
+  ansible.builtin.file:
+    path: "{{EXTRACT_DIR}}/{{component}}"
+    state: absent
+
 #- name: create a directory for {{ component }} component
 #  ansible.builtin.file:
 #    path: "{{EXTRACT_DIR}}"
