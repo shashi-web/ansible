@@ -56,5 +56,11 @@
       tags: payment
       when: APP == "payment"
 
+    - name: Import rabbitmq
+      ansible.builtin.import_role:
+        name: rabbitmq
+      tags: rabbitmq
+      when: APP == "rabbitmq"
+
 
 
