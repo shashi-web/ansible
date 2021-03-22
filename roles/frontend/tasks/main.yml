@@ -15,10 +15,10 @@
     APP_USER: root
 
 
-#- name: move localhost.conf to roboshop.conf
- # template:
-  #  src: roboshop.conf
-   # dest: /etc/nginx/default.d/roboshop.conf
+- name: move localhost.conf to roboshop.conf
+  template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
 
 - name: start nginx service
   systemd:
