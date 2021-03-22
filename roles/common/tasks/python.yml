@@ -6,29 +6,29 @@
       - python3-devel
     state: present
 
-- name: Download {{ COMPONENT }} Component
+- name: Download {{ component }} Component
   ansible.builtin.include_tasks: curl_download.yml
   vars:
     EXTRACT_DIR: /home/roboshop
     APP_USER: roboshop
-    COMPONENT_DIR: /home/roboshop/{{COMPONENT}}
+    COMPONENT_DIR: /home/roboshop/{{component}}
 
 - name: Install specified python requirements
   pip:
-    requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
+    requirements: /home/roboshop/{{component}}/requirements.txt
     executable: pip3
 
 - name: Update User ID  in Payment configuration
   ansible.builtin.lineinfile:
-    path: /home/roboshop/{{COMPONENT}}/payment.ini
+    path: /home/roboshop/{{component}}/payment.ini
     regexp: "^uid"
     line: "uid={{RS_UID}}"
 
 - name: Update Group ID  in Payment configuration
   ansible.builtin.lineinfile:
-    path: /home/roboshop/{{COMPONENT}}/payment.ini
+    path: /home/roboshop/{{component}}/payment.ini
     regexp: "^gid"
     line: "gid={{RS_GID}}"
 
-- name: Download {{ COMPONENT }} Component
+- name: Download {{ component }} Component
   ansible.builtin.include_tasks: systemd.yml
