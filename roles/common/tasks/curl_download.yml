@@ -5,14 +5,14 @@
 
 - name: Remove old content
   ansible.builtin.file:
-    path: "{{EXTRACT_DIR}}"
+    path: "{{COMPONENT_DIR}}"
     state: absent
 
-- name: create a directory for {{ component }} component
-  ansible.builtin.file:
-    path: "{{EXTRACT_DIR}}"
-    state: directory
-  become_user: "{{APP_USER}}"
+#- name: create a directory for {{ component }} component
+#  ansible.builtin.file:
+#    path: "{{EXTRACT_DIR}}"
+#    state: directory
+#  become_user: "{{APP_USER}}"
 
 - name: unarchive {{ component }} component
   ansible.builtin.unarchive:
@@ -20,3 +20,12 @@
     dest: "{{EXTRACT_DIR}}"
     remote_src: yes
   become_user: "{{APP_USER}}"
+
+- name: Move component directory
+  shell: mv {{EXTRACT_DIR}}/{{component}}-main {{EXTRACT_DIR}}/{{component}}
+
+- name: Move static content
+  shell: mv {{EXTRACT_DIR}}/{{component}}/static/* {{EXTRACT_DIR}}/.
+  when: compoent == "frontend"
+
+

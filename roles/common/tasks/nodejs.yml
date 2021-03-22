@@ -9,7 +9,8 @@
 - name: Download {{ component }} component
   ansible.builtin.include_tasks: curl_download.yml
   vars:
-    EXTRACT_DIR: /home/roboshop/{{component}}
+    EXTRACT_DIR: /home/roboshop
+    COMPONENT_DIR: /home/roboshop/{{component}}
     APP_USER: roboshop
 
 - name: install NodeJS module
