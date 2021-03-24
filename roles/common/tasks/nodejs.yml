@@ -14,7 +14,8 @@
     APP_USER: roboshop
 
 - name: install NodeJS module
-  community.general.npm:
+  #community.general.npm:
+  npm:
     path: /home/roboshop/{{component}}
   become_user: roboshop
 
