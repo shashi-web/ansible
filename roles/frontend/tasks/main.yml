@@ -4,15 +4,26 @@
     state: present
 
 
+#- name: Download {{ component }} component
+#  include_role:
+#    name: common
+#    tasks_from: curl_download
+#  vars:
+#    URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+#    EXTRACT_DIR: /usr/share/nginx
+#    COMPONENT_DIR: /usr/share/nginx/html
+#    APP_USER: root
+
 - name: Download {{ component }} component
   include_role:
     name: common
-    tasks_from: curl_download
+    tasks_from: nexus_download
   vars:
-    URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
-    EXTRACT_DIR: /usr/share/nginx
+    URL: "http://35.175.200.158:8081/repository/frontend/frontend-1.0.{{APP_VERSION}}.zip"
+    EXTRACT_DIR: /usr/share/nginx/html
     COMPONENT_DIR: /usr/share/nginx/html
     APP_USER: root
+    ARCHIVE_FILE: "{{component}}.zip"
 
 
 - name: move localhost.conf to roboshop.conf

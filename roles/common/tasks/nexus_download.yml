@@ -1,0 +1,27 @@
+- name: Download {{ component }} component
+  ansible.builtin.get_url:
+    url: "{{ URL }}"
+    dest: /tmp/{{ARCHIVE_FILE}}
+
+- name: Remove old content
+  ansible.builtin.file:
+    path: "{{EXTRACT_DIR}}"
+    state: absent
+
+- name: create a directory for {{ component }} component
+  ansible.builtin.file:
+    path: "{{EXTRACT_DIR}}"
+    state: directory
+  become_user: "{{APP_USER}}"
+
+- name: unarchive {{ component }} component
+  ansible.builtin.unarchive:
+    src: /tmp/{{ARCHIVE_FILE}}
+    dest: "{{EXTRACT_DIR}}"
+    remote_src: yes
+  become_user: "{{APP_USER}}"
+
+- name: Move static content
+  shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
+  when: component == "frontend"
+
