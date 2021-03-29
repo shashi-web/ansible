@@ -5,7 +5,7 @@
 
 - name: Remove old content
   ansible.builtin.file:
-    path: "{{EXTRACT_DIR}}"
+    path: "{{COMPONENT_DIR}}"
     state: absent
 
 - name: create a directory for {{ component }} component
@@ -22,6 +22,6 @@
   become_user: "{{APP_USER}}"
 
 - name: Move static content
-  shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
+  ansible.builtin.shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
   when: component == "frontend"
 
