@@ -15,7 +15,7 @@
   when: p.stat.isdir is not defined
 
 - name: rename node_exporter
-  shell: mv node_exporter-{{version.stdout}}.linux-amd64 node_exporter
+  shell: mv node_exporter-{{version.stdout}}.linux-amd64 /opt/node_exporter
   when: p.stat.isdir is not defined
 
 - name: setup node exporter service
