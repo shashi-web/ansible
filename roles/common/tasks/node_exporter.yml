@@ -1,5 +1,5 @@
 - name: check if node exporter exists
-  ansible.builtin.stat:
+  stat:
     path: /opt
     register: p
 
