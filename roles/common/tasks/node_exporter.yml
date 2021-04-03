@@ -14,5 +14,19 @@
     remote_src: yes
   when: p.stat.isdir is not defined
 
-#- name: rename node_exporter
-#  shell: mv prometheus-1.1.2.linux-amd64
+- name: rename node_exporter
+  shell: mv node_exporter-{{version.stdout}}.linux-amd64 node_exporter
+  when: p.stat.isdir is not defined
+
+- name: setup node exporter service
+  copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/node_exporter.service
+
+- name: start node exporter
+  systemd:
+    name: node exporter
+    state: restarted
+    enabled: yes
+    daemon-reload: yes
+
