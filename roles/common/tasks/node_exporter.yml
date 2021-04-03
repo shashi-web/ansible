@@ -1,0 +1,18 @@
+- name: check if node exporter exists
+  ansible.builtin.stat:
+    path: /opt
+    register: p
+
+- name: grab latest version
+  shell: curl -s  https://github.com/prometheus/node_exporter/releases|grep 1.1.2| grep span| head -1| sed -e 's|>| |g' -e 's|<| |g' | xargs -n1| grep ^v | sed -e 's|v| |'
+  register: version
+
+- name: download node exporter
+  ansible.builtin.unarchive:
+    src: https://github.com/prometheus/prometheus/releases/download/v{{version.stdout}}/prometheus-{{version.stdout}}.linux-amd64.tar.gz
+    dest: /opt
+    remote_src: yes
+  when: p.stat.isdir is not defined
+
+#- name: rename node_exporter
+#  shell:
