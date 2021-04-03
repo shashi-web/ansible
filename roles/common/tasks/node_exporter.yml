@@ -18,6 +18,7 @@
   shell: mv /opt/node_exporter-{{version.stdout}}.linux-amd64 /opt/node_exporter
   when: p.stat.isdir is not defined
 
+
 - name: setup node exporter service
   copy:
     src: node_exporter.service
