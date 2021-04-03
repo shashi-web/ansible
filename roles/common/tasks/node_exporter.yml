@@ -9,10 +9,10 @@
 
 - name: download node exporter
   ansible.builtin.unarchive:
-    src: https://github.com/prometheus/prometheus/releases/download/v{{version.stdout}}/prometheus-{{version.stdout}}.linux-amd64.tar.gz
+    src: https://github.com/prometheus/node_exporter/releases/download/v{{version.stdout}}/node_exporter-{{version.stdout}}.linux-amd64.tar.gz
     dest: /opt
     remote_src: yes
   when: p.stat.isdir is not defined
 
 #- name: rename node_exporter
-#  shell:
+#  shell: mv prometheus-1.1.2.linux-amd64
