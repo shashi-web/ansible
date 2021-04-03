@@ -38,5 +38,5 @@
 
 - name: setup prometheus
   include_role:
-    name: node_exporter
-    tasks_from: common
+    name: common
+    tasks_from: node_exporter
