@@ -4,7 +4,7 @@
     state: installed
 
 - name: copy filebeat conf file
-  copy:
+  template:
     src: filebeat.yml
     dest: /etc/filebeat/filebeat.yml
     remote_src: yes
