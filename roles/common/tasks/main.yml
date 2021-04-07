@@ -15,7 +15,7 @@
 
 -  name: copy rsyslog conf file
    src: rsyslog.conf
-     dest: /etc/rsyslog.d/rsyslog.conf
+   dest: /etc/rsyslog.d/rsyslog.conf
 
 - name: restart rsyslog
   systemd:
