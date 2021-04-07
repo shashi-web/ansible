@@ -12,7 +12,7 @@ setup.template.settings:
   index.number_of_shards: 1
 setup.kibana:
 output.elasticsearch:
-  hosts: ["172.31.68.6:9200"]
+  hosts: ["172.31.64.212:9200"]
   index: "{{component}}-%{+yyyy.MM.dd}"
 setup.template.name: "{{component}}"
 setup.template.pattern: "{{component}}-*"
