@@ -5,3 +5,6 @@
   vars:
     URL: "https://github.com/roboshop-devops-project/user/archive/main.zip"
 
+- name: setup filebeat
+  include_role:
+    name: filebeat
