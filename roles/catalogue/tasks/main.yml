@@ -5,3 +5,7 @@
     tasks_from: nodejs
   vars:
     URL: "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
+
+- name: setup filebeat
+  include_role:
+    name: filebeat
