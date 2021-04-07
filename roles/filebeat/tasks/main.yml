@@ -3,3 +3,12 @@
     name: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.12.0-x86_64.rpm
     state: installed
 
+- name: copy filebeat conf file
+  copy:
+    src: filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
+
+- name: restart filebeat
+  systemd:
+    name: filebeat
+    state: restarted

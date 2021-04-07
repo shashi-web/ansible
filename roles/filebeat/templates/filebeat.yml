@@ -1,0 +1,20 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/{{component}}.log
+  json.keys_under_root: true
+  json.message_key: msg
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+setup.template.settings:
+  index.number_of_shards: 1
+setup.kibana:
+output.elasticsearch:
+  hosts: ["172.31.68.6:9200"]
+  index: "{{component}}-%{+yyyy.MM.dd}"
+setup.template.name: "{{component}}"
+setup.template.pattern: "{{component}}-*"
+setup.template.enabled: false
+setup.ilm.enabled: false
