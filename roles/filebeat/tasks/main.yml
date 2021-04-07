@@ -7,7 +7,6 @@
   template:
     src: filebeat.yml
     dest: /etc/filebeat/filebeat.yml
-    remote_src: yes
 
 - name: restart filebeat
   systemd:
