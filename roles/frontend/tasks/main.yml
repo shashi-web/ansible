@@ -28,7 +28,7 @@
 
 - name: move localhost.conf to roboshop.conf
   copy:
-    src: /frontend/files/roboshop.conf
+    src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
     remote_src: yes
 
