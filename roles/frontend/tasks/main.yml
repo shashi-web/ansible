@@ -27,7 +27,7 @@
 
 
 - name: move localhost.conf to roboshop.conf
-  copy:
+  template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
     remote_src: yes
