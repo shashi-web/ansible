@@ -35,7 +35,8 @@
 - name: start nginx service
   systemd:
     name: nginx
-    state: restarted
+    #state: restarted
+    enabled: yes
 
 - name: setup prometheus
   include_role:
